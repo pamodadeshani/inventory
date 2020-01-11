@@ -1,0 +1,42 @@
+create table Supplier(
+supId varchar(25) primary key,
+supName varchar(25),
+supEmail varchar(25),
+supPhone varchar(25),
+companyName varchar(25)
+);
+
+create table Staff(
+stafId varchar(25) primary key,
+name varchar(25),
+address2 varchar(25),
+email varchar(25)
+);
+
+create table Item(
+itemCodevarchar(25) primary key ,
+itemName varchar(25),
+qty varchar(25),
+unitPrice varchar(25),
+supplier varchar(25),
+constraint Fk_item foreign key (supplier) references Supplier(supId),
+constraint prod_chk check(qty>0)
+);
+
+create table Order1(
+itemCode varchar(25),
+
+supid varchar(25),
+email varchar(25),
+quantity varchar(25),
+orderDate varchar(25) ,
+constraint pk_ord primary key(itemCode),
+constraint Fk_ord1 foreign key (itemCode) references Item(itemCode)
+
+
+
+);
+
+
+
+
